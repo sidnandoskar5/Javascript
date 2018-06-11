@@ -5,25 +5,10 @@
 <style type="text/css">
 	body{background: #f1f1f1; font-family: 'Ubuntu', sans-serif; font-weight: 400;}
 	.quest{font-weight: 700;}
-	ol {
-		counter-reset: item;
-	}
-
-	ol > li {
-		list-style-type: none;
-		counter-increment: item;
-		padding: 0 0 0 20px;
-    	position: relative;
-	}
-
-	ol > li:before {
-		position: absolute;
-		display: block;
-		font-weight: 700;
-		text-align: right;
-		left: 0;
-		content: counter(item) ".";
-	}
+	.ans{color: #318410;}
+	ol {counter-reset: item;}
+	ol > li {list-style-type: none;counter-increment: item;padding: 0 0 0 20px;position: relative;}
+	ol > li:before {position: absolute;display: block;font-weight: 700;text-align: right;left: 0;content: counter(item) ".";}
 </style>
 <body>
 <h1>Assignment No. 1</h1>
