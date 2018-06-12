@@ -4,7 +4,7 @@
 	<title>Assignment No.2</title>
 </head>
 <body>
-	<h1>Assignment No.2</h1>
+	<h1>Assignment No.2 <span id="wish"></span></h1>
 	<ul>
 		<li>
 			<p class="quest">var counter = 0;counter++; ++counter; alert( counter );<br />
@@ -154,12 +154,18 @@
 
 		var hrs = (new Date).getHours()
 
-		if(hrs >=4 && hrs < 12)
+		if(hrs >=4 && hrs < 12){
 			document.body.style.backgroundColor = "yellow";
-		else if(hrs >= 12 && hrs < 20)
+			document.getElementById('wish').innerHTML = "Good Morning!";
+		}
+		else if(hrs >= 12 && hrs < 20){
 			document.body.style.backgroundColor = "blue";
-		else
+			document.getElementById('wish').innerHTML = "Good Afternoon!";
+		}
+		else{
 			document.body.style.backgroundColor = "black";
+			document.getElementById('wish').innerHTML = "Good Night!";
+		}
 	</script>
 </body>
 </html>
