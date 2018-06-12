@@ -2,10 +2,19 @@
 <html>
 <head>
 	<title>Assignment No.2</title>
+	<style type="text/css">
+		body{background: #f1f1f1; font-family: 'Ubuntu', sans-serif; font-weight: 400;}
+		h1{color: #fff;}
+		.quest{font-weight: 700; color: red;}
+		.ans{color: #318410;}
+		ol {counter-reset: item;}
+		ol > li {list-style-type: none;counter-increment: item;padding: 0 0 0 20px;position: relative;}
+		ol > li:before {position: absolute;display: block;font-weight: 700;text-align: right;left: 0;content: counter(item) "."; color: red;}
+	</style>
 </head>
 <body>
 	<h1>Assignment No.2 <span id="wish"></span></h1>
-	<ul>
+	<ol>
 		<li>
 			<p class="quest">var counter = 0;counter++; ++counter; alert( counter );<br />
 			What will alert this and why?</p>
@@ -76,7 +85,7 @@
 				<button onclick="CheckAge()">Check Age</button>
 			</p>
 		</li>
-	</ul>
+	</ol>
 	<script type="text/javascript">
 		var counter = 0;
  		counter++;
@@ -158,7 +167,7 @@
 			document.body.style.backgroundColor = "yellow";
 			document.getElementById('wish').innerHTML = "Good Morning!";
 		}
-		else if(hrs >= 12 && hrs < 20){
+		else if(hrs >= 12 && hrs < 18){
 			document.body.style.backgroundColor = "blue";
 			document.getElementById('wish').innerHTML = "Good Afternoon!";
 		}
