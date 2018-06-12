@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment No.2</title>
+</head>
+<body>
+	<h1>Assignment No.2</h1>
+	<ul>
+		<li>
+			<p class="quest">var counter = 0;counter++; ++counter; alert( counter );<br />
+			What will alert this and why?</p>
+			<p class="ans" id="a1">
+				counter = 0;<br/>
+				counter++ => counter shows 0 and stores value 1.<br/>
+				++counter => counter shows 2 and stores value 2
+			</p>
+		</li>
+		<li>
+			<p class="quest">var n = 2; n *= 3 + 5; alert( n );<br/>
+			What will alert this and why?</p>
+			<p class="ans" id="a1">
+				n *= 3 + 5; => n = n * (3 + 5);
+			</p>
+		</li>
+		<li>
+			<p class="quest">What are the final values of all variables a, b, c and d after the code below?<br/>
+				var a = 1, b = 1;<br/>
+				var c = ++a;<br/>
+				var d = b++;</p>
+			<p class="ans" id="a1">
+				var a = 1, b = 1;<br/>
+				var c = ++a; // a = 2; c = 2<br/>
+				var d = b++; // d = 1; b = 2 *first b stores its value i.e. 1 in d and then increament its value by 1.</p>
+			</p>
+		</li>
+		<li>
+			<p class="quest">What are the values of a and x after the code below?<br/>
+				var a = 2; var x = 1 + (a *= 2);</p>
+			<p class="ans" id="a1">
+				var a = 2;
+				var x = 1 + (a *= 2);
+				// a = a*2 => a = 4;
+				// x = 1 + 4 = 5
+			</p>
+		</li>
+		<li>
+			<p class="quest">Find greatest among 4 numbers</p>
+			<p class="ans" id="a1">
+				<input type="numbers" id="num1">
+				<input type="numbers" id="num2">
+				<input type="numbers" id="num3">
+				<input type="numbers" id="num4">
+				<button onclick="findGreatest();">Find Greatest</button>
+				<div id="greatest"></div>
+			</p>
+		</li>
+		<li>
+			<p class="quest">Rewrite this if using the ternary operator '?':<br/>
+				if (a + b < 4) { result = 'Below'; } else { result = 'Over'; }</p>
+			<p class="ans" id="a1">
+				result = (a + b < 4) ? 'Below' : 'Over';
+			</p>
+		</li>
+		<li>
+			<p class="quest">Rewrite following to switch <br/>
+			var a = +prompt('a?', ''); if (a == 0) { alert( 0 ); } if (a == 1) { alert( 1 ); } if (a == 2 || a == 3) { alert( '2,3' ); }</p>
+			<p class="ans" id="a1">
+				<button onclick="callSwitch()">Test Switch</button>
+			</p>
+		</li>
+		
+		<li>
+			<p class="quest">Write a condition to check if the given age is of a teenager or no. </p>
+			<p class="ans" id="a1">
+				<input type="numbers" id="age">
+				<button onclick="CheckAge()">Check Age</button>
+			</p>
+		</li>
+	</ul>
+	<script type="text/javascript">
+		var counter = 0;
+ 		counter++;
+ 		console.log(counter);
+ 		++counter;
+ 		console.log(counter);
+ 		//alert( counter );
+
+ 		/* -- */
+ 		var n = 2; n *= 3 + 5; alert( n );
+ 		/* ---- */
+ 		var a = 1, b = 1; 
+		var c = ++a; 
+		var d = b++;
+
+		console.log('a => ' + a + '; b => ' + b + '; c => ' + c + '; d => ' + d);
+		/* --- */
+		var a = 2; var x = 1 + (a *= 2);
+		console.log("a => " + a + "; x => " + x);
+		/* ---- */
+		function findGreatest(){
+			var num1 = document.getElementById('num1').value;
+			var num2 = document.getElementById('num2').value;
+			var num3 = document.getElementById('num3').value;
+			var num4 = document.getElementById('num4').value;
+			var ans = "Greatest number is ";
+
+			if(num1 > num2 && num1 > num3 && num1 > num4) ans += num1;
+			else if(num2 > num1 && num2 > num3 && num2 > num4) ans += num2;
+			else if(num3 > num1 && num3 > num2 && num3 > num4) ans += num3;
+			else ans += num4;
+			document.getElementById('greatest').innerHTML = ans;
+		}
+
+		/* --- */
+
+		function callSwitch(){
+			var a = +prompt('a?', '');
+			switch(a){
+				case 0: alert( 0 );
+				break;
+				case 1: alert(1);
+				break;
+				case 2:
+				case 3: alert( '2,3' );
+				break;
+				default: alert("Kuchh bhi!");
+			}
+		}
+
+		/* -- */
+		function CheckAge(){
+			var age = document.getElementById('age').value;
+			var msg = (age < 20) ? "Teenager!" : "Adult!";
+			alert(msg);
+		}
+
+		var day = (new Date()).getDay();
+		switch(day){
+			case 1: alert("Meatless Monday!");
+			break;
+			case 2: alert("Taco Tuesday"); 
+			break;
+			case 3: alert("Wild Wednesday"); 
+			break;
+			case 4: alert("Tensionwala Thursday"); 
+			break;
+			case 5: alert("Freeking Friday"); 
+			break;
+			case 6:
+			case 0: alert("Weekend.... It's Party Time!");
+			break;
+			default: alert("Tere pichale janam ke paap!");
+		}
+
+		var hrs = (new Date).getHours()
+
+		if(hrs >=4 && hrs < 12)
+			document.body.style.backgroundColor = "yellow";
+		else if(hrs >= 12 && hrs < 20)
+			document.body.style.backgroundColor = "blue";
+		else
+			document.body.style.backgroundColor = "black";
+	</script>
+</body>
+</html>
