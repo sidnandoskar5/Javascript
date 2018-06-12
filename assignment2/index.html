@@ -6,7 +6,7 @@
 		body{background: #f1f1f1; font-family: 'Ubuntu', sans-serif; font-weight: 400;}
 		h1{color: #fff;}
 		.quest{font-weight: 700; color: red;}
-		.ans, .ans *{color: #318410;}
+		.ans{color: #318410;}
 		ol {counter-reset: item;}
 		ol > li {list-style-type: none;counter-increment: item;padding: 0 0 0 20px;position: relative;}
 		ol > li:before {position: absolute;display: block;font-weight: 700;text-align: right;left: 0;content: counter(item) "."; color: red;}
@@ -60,8 +60,8 @@
 				<input type="numbers" id="num3">
 				<input type="numbers" id="num4">
 				<button onclick="findGreatest();">Find Greatest</button>
-				<div id="greatest"></div>
 			</p>
+			<div class="ans" id="greatest"></div>
 		</li>
 		<li>
 			<p class="quest">Rewrite this if using the ternary operator '?':<br/>
