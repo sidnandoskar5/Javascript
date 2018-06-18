@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 3</title>
+	<style type="text/css">
+		nav{top: 200px; width: 100%; height: 50px; background: black; position: relative;color: #fff;}
+		.sticky {position: fixed;top: 0;width: 100%;}
+		.menu-list,.sub-menu-list{background: #000;}
+		.sub-menu-list{display: none;}
+
+		.show{display: block;}
+
+		.tabs{list-style-type: none; margin: 0 -14px;}
+		.tabs li {display: inline-block;cursor: pointer; padding: 0 14px; border: 1px solid;}
+	</style>
+</head>
+<body>
+	<nav id="header">
+		<ul class="menu-list">
+			<li class="menu">Link1
+				<ul class="sub-menu-list">
+					<li class="menu">Link1-1
+						<ul class="sub-menu-list">
+							<li class="menu">Link1-1-1</li>
+							<li class="menu">Link1-1-2</li>
+							<li class="menu">Link1-1-3</li>
+						</ul>
+					</li>
+					<li class="menu">Link1-2</li>
+					<li class="menu">Link1-3</li>
+				</ul>
+			</li>
+			<li class="menu">Link2</li>
+			<li class="menu">Link3</li>
+		</ul>
+	</nav>
+<ol>
+	<li>
+		<p>
+			What is the difference between following 2 functions if any? 
+			function checkAge(age) {
+				if (age > 18) {
+					return true;
+				} else {
+					return confirm('Did parents allow you?');
+				}
+			}
+		</p>
+		<p>
+			function checkAge(age) {
+				if (age > 18) {
+					return true;
+				}
+				return confirm('Did parents allow you?');
+			}
+		</p>
+		<p>
+			Both functions takes input and check that if age is grater than 18.<br/>
+			If age is greater than 18 function will return true else it will show popup that will ask "Did parents allow you?".
+			confirm('Did parents allow you?') // on click "ok" It will return true else false.
+		</p>
+	</li>
+	<li>
+		<p>Rewrite above function using ternary operator</p>
+		<p>function checkAge(age) {
+			var data = (age > 18) ? true : confirm('Did parents allow you?');
+			return data;
+		}</p>
+	</li>
+	<li>
+		<p>
+			WAF to find min value from 2 numbers using ternary operators. <br/>
+			<form id="findMinNum" action="#">
+				<input type="numbers" id="num1" required /><br/>
+				<input type="numbers" id="num2" required /><br/>
+				<input type="submit"/>
+			</form>
+		</p>
+	</li>
+	<li>
+		<p>WAF to find prime numbers from 1-100</p>
+		<p id="result"></p>
+	</li>
+	<li>
+		<p>WAF to multi 2/multiple numbers. (use function parameters/arguments)</p>
+		<p>
+			function mutiplyNumbers(...numbers){
+					var result = 1;
+					var i= 0;
+					while(i < numbers.length){
+						result *= numbers[i];
+						i++;
+					}
+			}
+		</p>
+	</li>
+	<li>
+		<p>Implement IIFE</p>
+		<p>
+			(function () {alert("IIFE");})();
+		</p>
+	</li>
+	<li>
+		<p>WAF: To check if palindrome.</p>
+		<div>
+			<form action="#" id="palinform">
+				<input type="text" id="palintext" required="">
+				<input type="submit" name="" value="check palindrome">
+			</form>
+		</div>
+		<p id="palindrome-result"></p>
+	</li>
+	<li>
+		<p>WAF: To generate fibonacci series upto user entered number eg: if user enters 6.  output: 1 1 2 3 5 8 </p>
+		<div>
+			<form action="#" id="fiboform">
+				<input type="number" id="palinnum" min="0" required="" placeholder="Enter Limit">
+				<input type="submit" name="" value="Fibo Series">
+			</form>
+		</div>
+		<p>Result: <span id="fiboresult"></span></p>
+	</li>
+	<li>
+		<p>create 3 pure functions
+			<br/>* to get the maximum value from the given array.
+			<br/>* to get the minimum value from the given array.
+			<br/>* get query parameter value from the url provided.
+		</p>
+	</li>
+	<li>
+		<p>make a header with navigation bar at 200px from the top of the screen, make the header sticky once you scroll past it.</p>
+	</li>
+	<li>
+		<ul class="tabs" id="tab-list">
+		</ul>
+		<div id="tab-content"></div>
+	</li>
+</ol>
+<style type="text/css">
+	
+</style>
+<script type="text/javascript">
+
+	var selector = document.getElementById("findMinNum");
+	selector.addEventListener("submit", function(e){
+		var num1 = document.getElementById("num1").value;
+		var num2 = document.getElementById("num2").value;
+		var min = (num1 < num2) ? num1 : num2;
+		alert(min + " is smaller number.");
+	});
+
+	var printPrime = function() {
+	    var i = 0;
+	    var j = 0;
+
+	    for (i = 1; i <= 100; i++) {
+	        c = 0;
+	        for (j = 1; j <= i; j++) {
+	            if (i % j == 0) {
+	                c++;
+	            }
+	        }
+	        if (c == 2) {
+	            document.getElementById("result").insertAdjacentHTML('beforeend', i + ' ');
+	        }
+	    }
+	}
+	printPrime();
+
+	function mutiplyNumbers(...numbers){
+		var result = 1;
+		var i= 0;
+		while(i < numbers.length){
+			result *= numbers[i];
+			i++;
+		}
+	}
+
+	(function () {
+		alert("I am IIFE...");
+	})();
+
+	document.getElementById("palinform").addEventListener("submit", function(e){
+		var text = (document.getElementById("palintext").value).split("");
+		var flag = 1;
+		for(var i=0; i<text.length; i++){
+			if(text[i] == text[text.length-i-1]){
+				continue;
+				if(i <= text.length/2) break;
+			}else{flag = 0; break;}
+		}
+		if (flag) {
+			console.log("palindrome");
+		}else{
+			console.log("Not palindrome");
+		}
+	});
+
+	document.getElementById("fiboform").addEventListener("submit", function(e){
+		var i ,limit = document.getElementById("palinnum").value;
+		var fib = [];
+		fib[0] = 0;
+		fib[1] = 1;
+		document.getElementById("fiboresult").insertAdjacentHTML('beforeend', 1 + " ");
+		for(i=2; i<=limit; i++){
+			fib[i] = fib[i-2] + fib[i-1];
+			document.getElementById("fiboresult").insertAdjacentHTML('beforeend', fib[i] + " ");
+		}
+	});
+
+	var $nums = [4, 8, 9, 10, 2];
+	getMinValue($nums);
+	getMaxValue($nums);
+	function getMinValue(numArray){
+		var min = numArray[0];
+		for(var i=1; i<numArray.length; i++){
+			if(numArray[i] < min){
+				min = numArray[i];
+			}
+		}
+
+		console.log(min);
+	}
+	function getMaxValue(numArray){
+		var max = numArray[0];
+		for(var i=1; i<numArray.length; i++){
+			if(numArray[i] > max){
+				max = numArray[i];
+			}
+		}
+
+		console.log(max);
+	}
+
+	window.onscroll = function() {makeHeaderSticky()};
+	var header = document.getElementById("header");
+	var sticky = header.offsetTop;
+	function makeHeaderSticky(){
+		  if (window.pageYOffset >= sticky) {
+		    header.classList.add("sticky");
+		  } else {
+		    header.classList.remove("sticky");
+		  }
+	}
+
+	var menus = document.getElementsByClassName("menu");
+	for(var i = 0; i<menus.length; i++){
+		menus[i].addEventListener('mouseover', function(){
+			if(this.childElementCount > 0)
+			this.firstElementChild.classList.add("show");
+		});
+		menus[i].addEventListener('mouseout', function(){
+			if(this.childElementCount > 0)
+			this.firstElementChild.classList.remove("show");
+		});
+	}
+	var tabs = [{"name": "Tab1","content":"I am Tab1"},
+	{"name": "Tab2","content":"I am Tab2"},
+	{"name": "Tab3","content":"I am Tab3"},
+	{"name": "Tab4","content":"I am Tab4"},
+	{"name": "Tab5","content":"I am Tab5"}];
+	var tabsHTML= ""
+	for(var i=0; i<tabs.length; i++){
+		tabsHTML += "<li class='tab-select' data-content='"+tabs[i].content+"'>" + tabs[i].name + "</li>";
+	}
+	document.getElementById("tab-list").innerHTML = tabsHTML;
+
+	var tabSelect = document.getElementsByClassName("tab-select");
+	for(var i = 0; i<tabSelect.length; i++){
+		tabSelect[i].addEventListener('mouseover', function(){
+			document.getElementById("tab-content").innerHTML = this.getAttribute("data-content");
+		});
+	}
+</script>
+</body>
+</html>
